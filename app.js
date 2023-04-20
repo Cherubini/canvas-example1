@@ -1,25 +1,16 @@
-console.log('ecco');
-
 const myCanvas = document.getElementById('my-canvas');
-
 const ctx = myCanvas.getContext('2d');
 
- for (let i = 0; i < 100; i++) {
-    
-    const originX = Math.random() * 600;
-    const originy = Math.random() * 600;
-    const width = Math.random() * 100;
-    const height = Math.random() * 100;
+const point = {
+    x: 300,
+    y: 300,
+}
 
-    const red = Math.random() * 355;
-    const green =Math.random() * 355;
-    const blue =Math.random() * 355;
-
-
-    ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
-    ctx.fillRect(originX,originy,width,height);
-    
-    ctx.strokeStyle = `rgb(${red}, ${green}, ${blue})`;
-    ctx.lineWidth   = 5;
-    ctx.strokeRect(originX,originy,width,height);
- }
+setInterval(() => {
+    const randomX = Math.random() * 2-1;
+    const randomY = Math.random() * 2-1;
+    ctx.fillStyle='red';
+    ctx.fillRect(point.x, point.y, 4, 4);
+    point.y +=randomY;
+    point.x +=randomX;
+}, 1)
